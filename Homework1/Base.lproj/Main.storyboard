@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Homework1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,8 +21,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBB-Qu-FBA">
+                                <rect key="frame" x="136" y="105" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMI-PQ-C5K">
+                                <rect key="frame" x="25" y="154" width="53" height="30"/>
+                                <state key="normal" title="Downer"/>
+                                <connections>
+                                    <action selector="decrementButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RL7-2y-CTX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-Mn-Rz7">
+                                <rect key="frame" x="297" y="154" width="43" height="30"/>
+                                <state key="normal" title="Upper"/>
+                                <connections>
+                                    <action selector="incrimentButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k51-W5-z59"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iBB-Qu-FBA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Jj-pV-SPC"/>
+                            <constraint firstItem="wN4-Mn-Rz7" firstAttribute="top" secondItem="iBB-Qu-FBA" secondAttribute="bottom" constant="28" id="0bK-jU-SEn"/>
+                            <constraint firstItem="iBB-Qu-FBA" firstAttribute="leading" secondItem="UMI-PQ-C5K" secondAttribute="trailing" constant="58" id="R4Q-9U-fpz"/>
+                            <constraint firstItem="iBB-Qu-FBA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="Wpf-ij-kJh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iBB-Qu-FBA" secondAttribute="trailing" constant="120" id="lri-Yd-qbp"/>
+                            <constraint firstItem="wN4-Mn-Rz7" firstAttribute="leading" secondItem="iBB-Qu-FBA" secondAttribute="trailing" constant="58" id="rVJ-DC-nIK"/>
+                            <constraint firstItem="iBB-Qu-FBA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="120" id="rhD-IP-f8c"/>
+                            <constraint firstItem="UMI-PQ-C5K" firstAttribute="top" secondItem="iBB-Qu-FBA" secondAttribute="bottom" constant="28" id="wTO-5D-nen"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="iBB-Qu-FBA" id="aXq-WI-CrI"/>
+                        <outlet property="decrementButton" destination="UMI-PQ-C5K" id="FJG-6f-xqN"/>
+                        <outlet property="incrimentButton" destination="wN4-Mn-Rz7" id="dUz-n0-LCJ"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="sZs-Ct-sKZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

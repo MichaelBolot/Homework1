@@ -10,16 +10,64 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var numberView: UIView!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var decrementButton: UIButton!
+    @IBOutlet weak var incrimentButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func incrimentButtonTapped(_ sender: Any) {
+        //tempA is used to incriment the value in countLabel
+        var tempA: Int = Int(countLabel.text!)!
+        tempA += 1
+        colorCheck(colorVal: tempA)
+        countLabel.text = "\(tempA)"
     }
-
+    
+    @IBAction func decrementButtonTapped(_ sender: Any) {
+        //tempA used to decrement the value in countLabel
+        var tempA: Int = Int(countLabel.text!)!
+        tempA -= 1
+        colorCheck(colorVal: tempA)
+        countLabel.text = "\(tempA)"
+    }
+    
+    //handler function for a switch case to determine
+    //background color
+    //Used so this doesn't have to be repeated in both button functions
+    func colorCheck(colorVal: Int){
+        
+        switch colorVal{
+        case let x where x < -30:
+            view.backgroundColor = UIColor.darkGray
+            
+        case let x where x < -20:
+            view.backgroundColor = UIColor.orange
+            
+        case let x where x < -10:
+            view.backgroundColor = UIColor.red
+            
+        case let x where x > 30:
+            view.backgroundColor = UIColor.blue
+            
+        case let x where x > 20:
+            view.backgroundColor = UIColor.green
+            
+        case let x where x > 10:
+            view.backgroundColor = UIColor.yellow
+            
+        default:
+            let white = UIColor.white
+            view.backgroundColor = white
+            
+        }
+        
+    }
+    
 
 }
 
